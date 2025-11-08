@@ -1,0 +1,22 @@
+{
+    "name": "mirthe/kirby_myhardcover",
+    "version": "1.1.1",
+    "description": "Show recently read books for a Hardcover.app account",
+    "homepage": "https://github.com/mirthe/kirby_myhardcover",
+    "keywords": ["kirby-plugin", "hardcover", "books", "history", "log"],
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mirthe Valentijn",
+            "email": "me@Mirthe.org",
+            "homepage": "https://mirthe.org"
+        }
+    ],
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://paypal.me/MirtheValentijn"
+        }
+    ]
+}
