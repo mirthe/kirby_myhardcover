@@ -1,6 +1,6 @@
 # Kirby Plugin: MyGoodreads
 
-This plugin allows you to show recent posts for a Goodreads account on your Kirby site
+This plugin allows you to show recent posts for a Goodreads account on your Kirby site.
 
 ## Git submodule
 
