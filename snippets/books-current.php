@@ -1,7 +1,7 @@
 <?php use Kirby\Toolkit\Str;
 
 $shelf_filter = 2;
-$limit = 3;
+$limit = 4;
 
 $localfile =  __DIR__ . "/hardcover-current.json";
 include_once ('getbooks.php');
