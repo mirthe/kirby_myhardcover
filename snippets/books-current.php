@@ -1,5 +1,6 @@
 <?php use Kirby\Toolkit\Str;
 
+$cachesection = 'reading';
 $shelf_filter = 2;
 $limit = 4;
 

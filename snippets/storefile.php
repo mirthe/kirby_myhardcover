@@ -1,5 +1,11 @@
-<?php if (!file_exists($localfile) OR time()-filemtime($localfile) > 2 * 3600 OR isset($_GET['forcecache'])) {
-    
+<?php
+$cache = kirby()->cache('mirthe.myhardcover');
+$cacheKey = 'hardcover-' . strtolower(option('mirthe.myhardcover.userid')) . '-' . $cachesection;
+$response = $cache->get($cacheKey);
+$force = isset($_GET['forcecache']);
+
+if ($response === null || $force) {
+    $previousResponse = $response;
     $endpoint = 'https://api.hardcover.app/v1/graphql';
     $ch = curl_init($endpoint);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -11,12 +17,18 @@
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['query' => $query]));
 
     $response = curl_exec($ch);
+    $error = curl_errno($ch);
     curl_close($ch);
-    
-    $fp = fopen($localfile, 'w');
-    fwrite($fp, $response);
-    fclose($fp);
 
-} else {
-    $response = file_get_contents($localfile); 
-} ?>
+    if ($response !== false && $error === 0 && $response !== '') {
+        $cache->set($cacheKey, $response, 2 * 3600);
+    } else {
+        $response = $previousResponse;
+    }
+}
+
+if ($response === null) {
+    $response = '[]';
+}
+?>
+
