@@ -24,7 +24,7 @@
             <?php endif; ?><br>
         <small><?= $book['release_date'] ?>
         <?php if((!empty($book['pages']))): ?>
-            &bull; <?= intval($book['pages']) ?> bladzijden
+            &bull; <?= intval($book['pages']) ?> <?= t('mirthe.myhardcover.pages') ?>
         <?php endif ?></small></p>
     </div>
 
