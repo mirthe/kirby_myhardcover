@@ -16,6 +16,7 @@ Kirby::plugin('mirthe/myhardcover', [
     ],
     'snippets' => [
         'hardcover-books-read' => __DIR__ . '/snippets/books-read.php',
-        'hardcover-books-currently-reading' => __DIR__ . '/snippets/books-current.php'
+        'hardcover-books-currently-reading' => __DIR__ . '/snippets/books-current.php',
+        'hardcover-books-currently-reading-compact' => __DIR__ . '/snippets/books-current-compact.php'
     ]
 ]);

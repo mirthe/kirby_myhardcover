@@ -1,6 +1,7 @@
 <?php
 $cache = kirby()->cache('mirthe.myhardcover');
-$cacheKey = 'hardcover-' . strtolower(option('mirthe.myhardcover.userid')) . '-' . $cachesection;
+$cacheKey = 'hardcover-' . strtolower(option('mirthe.myhardcover.userid')) . '-' . $cachesection .
+    ($cachesection === 'read' ? '-last-read-date' : '');
 $response = $cache->get($cacheKey);
 $force = isset($_GET['forcecache']);
 
@@ -31,4 +32,3 @@ if ($response === null) {
     $response = '[]';
 }
 ?>
-

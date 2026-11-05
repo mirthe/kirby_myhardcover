@@ -1,4 +1,4 @@
-<div class="masonry">
+<div class="grid">
 <?php foreach ($books as $ub):
     $book = $ub['book'];
     $authors = array_map(fn($c) => $c['author']['name'], $book['contributions'] ?? []);

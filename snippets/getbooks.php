@@ -14,7 +14,7 @@ query {
   me {
     user_books(
       where: { status_id: { _eq: $shelf_filter } }  # status 3 = “read” books
-      order_by: { date_added: desc }
+      order_by: { last_read_date: desc_nulls_last }
       limit: $limit
     ) { 
         book {
