@@ -9,14 +9,21 @@
 // |4|“on hold” / paused|
 // |5|“dropped” / abandoned|
 
+$order_by = $shelf_filter === 2
+    ? 'first_started_reading_date: desc_nulls_last'
+    : 'last_read_date: desc_nulls_last';
+$query_limit = $query_limit ?? $limit;
+
 $query = <<<GQL
 query {
   me {
     user_books(
-      where: { status_id: { _eq: $shelf_filter } }  # status 3 = “read” books
-      order_by: { last_read_date: desc_nulls_last }
-      limit: $limit
-    ) { 
+      where: { status_id: { _eq: $shelf_filter } }
+      order_by: { $order_by }
+      limit: $query_limit
+    ) {
+        first_started_reading_date
+        date_added
         book {
             id
             title

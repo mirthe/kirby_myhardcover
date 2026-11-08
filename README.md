@@ -20,7 +20,7 @@ Include the snippet to display your books on a page
 
 The read books are ordered by the most recent date you finished reading them.
 
-The currently reading list shows up to 30 books with titles, authors, release dates, and page counts by default. Pass a limit to show fewer. Use the compact variant to show covers only:
+The currently reading list is ordered by the most recently started book first. Ties, including books without a start date, are broken by when they were added to the library. It shows up to 30 books with titles, authors, release dates, and page counts by default. Pass a limit to show fewer. Use the compact variant to show covers only:
 
     <?php snippet('hardcover-books-currently-reading', ['limit' => 3 ]) ?>
     <?php snippet('hardcover-books-currently-reading-compact', ['limit' => 4 ]) ?>
