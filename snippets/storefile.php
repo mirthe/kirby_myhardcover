@@ -31,4 +31,3 @@ if ($response === null || $force) {
 if ($response === null) {
     $response = '[]';
 }
-?>
